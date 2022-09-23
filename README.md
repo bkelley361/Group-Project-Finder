@@ -11,9 +11,3 @@ Check this link to get flutter set up
 
 Use this link to create an app to see if flutter is operational
 * https://docs.flutter.dev/get-started/test-drive?tab=terminal#create-app
-
-[] iOS
-[] Android
-[] Web
-
-Who wants to test on iOS with xCode and who wants to test on Android with Android Studio? Also if we ant to do web.
