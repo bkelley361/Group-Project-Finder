@@ -19,10 +19,9 @@ The app will complete the following.
 4. Users will be able to swipe between different classmates in each class until a group is formed
 
 ### UML Diagrams
-1. [Class Diagram](https://lucid.app/lucidchart/efb5ee8e-e2a1-45ec-9228-3cf1b21c78d6/edit?invitationId=inv_c74757d6-ceee-48f8-896a-855fcdb7636e&page=TNOUg8anujOd#)
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/efb5ee8e-e2a1-45ec-9228-3cf1b21c78d6" id="bXCVt.UllF9J"></iframe></div>
-2. [Use Case Diagram](https://lucid.app/lucidchart/44775172-df9e-46d7-8b71-cdf8878c58c0/edit?viewport_loc=-805%2C110%2C2841%2C1207%2C0_0&invitationId=inv_226da821-82d7-454c-aa1a-0da602cd46f9#)
-3. [Sequence Diagram](https://lucid.app/lucidchart/2ba0f7d0-8e82-4dae-a54e-5e5d5720933b/edit?viewport_loc=-172%2C-22%2C1737%2C786%2C0_0&invitationId=inv_04471817-efe4-46e9-97a3-5a5980e9b12d#)
+1. ![Class Diagram](https://lucid.app/lucidchart/efb5ee8e-e2a1-45ec-9228-3cf1b21c78d6/edit?invitationId=inv_c74757d6-ceee-48f8-896a-855fcdb7636e&page=TNOUg8anujOd#)
+2. ![Use Case Diagram](https://lucid.app/lucidchart/44775172-df9e-46d7-8b71-cdf8878c58c0/edit?viewport_loc=-805%2C110%2C2841%2C1207%2C0_0&invitationId=inv_226da821-82d7-454c-aa1a-0da602cd46f9#)
+3. ![Sequence Diagram](https://lucid.app/lucidchart/2ba0f7d0-8e82-4dae-a54e-5e5d5720933b/edit?viewport_loc=-172%2C-22%2C1737%2C786%2C0_0&invitationId=inv_04471817-efe4-46e9-97a3-5a5980e9b12d#)
 
 ### Links for project
 1. Jira - https://groupprojectfinder.atlassian.net/jira/software/projects/GPF/boards/1
