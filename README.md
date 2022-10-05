@@ -11,6 +11,8 @@ A common problem students face in class is finding partners for a class project.
 
 ## Introduction
 
+
+
 ## Documentation
 
 The group project finder app will have flutter running the frontend and firebase running the backend. The reason we chose flutter and firebase is because we wanted to get some experience with these technologies and because Google developed both of them. This will allow for seamless integration of the database.
@@ -21,6 +23,11 @@ The app will complete the following.
 2. Users can join, create, and view different classes
 3. Users can edit their profile
 4. Users will be able to swipe between different classmates in each class until a group is formed
+
+### UI Designs - Figma
+
+1. (Login Screen)[https://www.figma.com/file/wMnLqHssP7jf8HO8GbRh8u/UI-Iphone-Login?node-id=0%3A1]
+2. (Main Screen) [https://www.figma.com/file/fLNvrYUTAXciLewVK6nS37/UI-Iphone?node-id=0%3A1]
 
 ### UML Diagrams
 
