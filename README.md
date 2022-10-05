@@ -26,8 +26,8 @@ The app will complete the following.
 
 ### UI Designs - Figma
 
-1. (Login Screen)[https://www.figma.com/file/wMnLqHssP7jf8HO8GbRh8u/UI-Iphone-Login?node-id=0%3A1]
-2. (Main Screen) [https://www.figma.com/file/fLNvrYUTAXciLewVK6nS37/UI-Iphone?node-id=0%3A1]
+1. [Login Screen](https://www.figma.com/file/wMnLqHssP7jf8HO8GbRh8u/UI-Iphone-Login?node-id=0%3A1)
+2. [Main Screen] (https://www.figma.com/file/fLNvrYUTAXciLewVK6nS37/UI-Iphone?node-id=0%3A1)
 
 ### UML Diagrams
 
