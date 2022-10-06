@@ -11,28 +11,17 @@ A common problem students face in class is finding partners for a class project.
 
 ## Introduction
 
-
-
-## Documentation
-
-The group project finder app will have flutter running the frontend and firebase running the backend. The reason we chose flutter and firebase is because we wanted to get some experience with these technologies and because Google developed both of them. This will allow for seamless integration of the database.
-
-The app will complete the following.
-
-1. Users can login or register an account (will only store usernames for now)
-2. Users can join, create, and view different classes
-3. Users can edit their profile
-4. Users will be able to swipe between different classmates in each class until a group is formed
+Because forming groups for projects can be awkward and hard we have decided to build a mobile app to fix that. Everyone has a phone and with a minimal amount of clicks and swiping you can have a group formed before you even have to talk to anyone about it. This app will be based on iOS and Android so it will be available to everyone. Because we do not have as much time as we would like to develop this app we will only include the basics. Swiping, joining projects, creating projects, viewing all joined projects, and editing your profile. There will be a minimal amount of authentication involved, just something basic enough to store usernames. Hopefully with this project we can change the way students and workers create teams and start projects.
 
 ### UI Designs - Figma
 
-1. [Login Screen](https://www.figma.com/file/wMnLqHssP7jf8HO8GbRh8u/UI-Iphone-Login?node-id=0%3A1)
-2. [Main Screen](https://www.figma.com/file/fLNvrYUTAXciLewVK6nS37/UI-Iphone?node-id=0%3A1)
+1. ![Login Screen](images/Login-Screen.png)
+2. ![Main Screen](images/Home-Screen.png)
 
 ### UML Diagrams
 
 1. ![Class Diagram](images/UML-Class-Diagram.png)
-2. ![Use Case Diagram](images/Use-Case-Diagram.jpeg)
+2. ![Use Case Diagram](images/Use-Case-Diagram.png)
 3. ![Sequence Diagram Part 1](images/Sequence-Diagram-pt.1.png)
 4. ![Sequence Diagram Part 2](images/Sequence-Diagram-pt.2.png)
 
