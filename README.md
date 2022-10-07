@@ -11,12 +11,15 @@ A common problem students face in class is finding partners for a class project.
 
 ## Introduction
 
-Because forming groups for projects can be awkward and hard we have decided to build a mobile app to fix that. Everyone has a phone and with a minimal amount of clicks and swiping you can have a group formed before you even have to talk to anyone about it. This app will be based on iOS and Android so it will be available to everyone. Because we do not have as much time as we would like to develop this app we will only include the basics. Swiping, joining projects, creating projects, viewing all joined projects, and editing your profile. There will be a minimal amount of authentication involved, just something basic enough to store usernames. Hopefully with this project we can change the way students and workers create teams and start projects.
+Because forming groups for projects can be awkward and hard we have decided to build a mobile app to fix that. Everyone has a phone and with a minimal amount of clicks and swiping you can have a group formed before you even have to talk to anyone about it. This app will be based on iOS and Android using a combination of Flutter and Firebase so it will be available to everyone. Because we do not have as much time as we would like to develop this app we will only include the basics. Swiping, joining projects, creating projects, viewing all joined projects, and editing your profile. There will be a minimal amount of authentication involved, just something basic enough to store usernames. Hopefully with this project we can change the way students and workers create teams and start projects.
+
+### Architecture
+
+![Architecture](images/Architecture.png)
 
 ### UI Designs - Figma
 
-1. ![Login Screen](images/Login-Screen.png)
-2. ![Main Screen](images/Home-Screen.png)
+![UI Screens](images/UI-Designs.png)
 
 ### UML Diagrams
 
