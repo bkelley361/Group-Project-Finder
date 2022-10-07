@@ -17,16 +17,16 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 ![Architecture](images/Architecture.png)
 
-### UI Designs - Figma
-
-![UI Screens](images/UI-Designs.png)
-
 ### UML Diagrams
 
 1. ![Class Diagram](images/UML-Class-Diagram.png)
 2. ![Use Case Diagram](images/Use-Case-Diagram.png)
 3. ![Sequence Diagram Part 1](images/Sequence-Diagram-pt.1.png)
 4. ![Sequence Diagram Part 2](images/Sequence-Diagram-pt.2.png)
+
+### UI Designs
+
+![UI Screens](images/UI-Designs.png
 
 ### Links for project
 
