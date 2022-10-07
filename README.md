@@ -26,7 +26,7 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 ### UI Designs
 
-![UI Screens](images/UI-Designs.png
+![UI Screens](images/UI-Designs.png)
 
 ### Links for project
 
