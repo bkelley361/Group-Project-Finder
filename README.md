@@ -1,5 +1,3 @@
-@ -1,6 +1,20 @@
-
 # Group-Project-Finder
 
 Group Project App for CIS 350 at Grand Valley State University
