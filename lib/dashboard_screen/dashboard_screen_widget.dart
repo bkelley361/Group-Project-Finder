@@ -221,175 +221,230 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
               Expanded(
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                  child: StreamBuilder<List<UsersRecord>>(
-                    stream: queryUsersRecord(
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                  child: AuthUserStreamWidget(
+                    child: FutureBuilder<List<UsersRecord>>(
+                      future: queryUsersRecordOnce(
+                        queryBuilder: (usersRecord) => usersRecord.whereNotIn(
+                            'uid',
+                            functions.combineLists(
+                                        (currentUserDocument?.matches
+                                                    ?.toList() ??
+                                                [])
+                                            .toList(),
+                                        (currentUserDocument?.rejects
+                                                    ?.toList() ??
+                                                [])
+                                            .toList()) !=
+                                    ''
+                                ? functions.combineLists(
+                                    (currentUserDocument?.matches?.toList() ??
+                                            [])
+                                        .toList(),
+                                    (currentUserDocument?.rejects?.toList() ??
+                                            [])
+                                        .toList())
+                                : null),
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: CircularProgressIndicator(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                              ),
                             ),
-                          ),
-                        );
-                      }
-                      List<UsersRecord> swipeableStackUsersRecordList = snapshot
-                          .data!
-                          .where((u) => u.uid != currentUserUid)
-                          .toList();
-                      final swipeableStackUsersRecord =
-                          swipeableStackUsersRecordList.isNotEmpty
-                              ? swipeableStackUsersRecordList.first
-                              : null;
-                      return FlutterFlowSwipeableStack(
-                        topCardHeightFraction: 0.72,
-                        middleCardHeightFraction: 0.68,
-                        botttomCardHeightFraction: 0.75,
-                        topCardWidthFraction: 0.95,
-                        middleCardWidthFraction: 0.85,
-                        botttomCardWidthFraction: 0.8,
-                        onSwipeFn: (index) {},
-                        onLeftSwipe: (index) async {
-                          final usersUpdateData = {
-                            'Rejects': FieldValue.arrayUnion(
-                                [swipeableStackUsersRecord!.uid]),
-                          };
-                          await currentUserReference!.update(usersUpdateData);
-
-                          context.pushNamed('DashboardScreen');
-                        },
-                        onRightSwipe: (index) async {
-                          final usersUpdateData = {
-                            'Matches': FieldValue.arrayUnion(
-                                [swipeableStackUsersRecord!.uid]),
-                          };
-                          await currentUserReference!.update(usersUpdateData);
-                          if (swipeableStackUsersRecord!.matches!
-                              .toList()
-                              .contains(swipeableStackUsersRecord!.uid)) {
-                            final chatsCreateData = {
-                              ...createChatsRecordData(
-                                userA: swipeableStackUsersRecord!.reference,
-                                userB: currentUserReference,
-                                lastMessage: '\"\"',
-                                lastMessageTime: getCurrentTimestamp,
-                              ),
-                              'users': functions.createChatUserList(
-                                  swipeableStackUsersRecord!.reference,
-                                  currentUserReference!),
-                            };
-                            await ChatsRecord.collection
-                                .doc()
-                                .set(chatsCreateData);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'You have a match',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor: Color(0x00000000),
-                              ),
-                            );
-                            await Future.delayed(
-                                const Duration(milliseconds: 3000));
-                          }
-
-                          context.goNamed(
-                            'DashboardScreen',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
                           );
-                        },
-                        onUpSwipe: (index) {},
-                        onDownSwipe: (index) {},
-                        itemBuilder: (context, index) {
-                          return [
-                            () => Material(
-                                  color: Colors.transparent,
-                                  elevation: 1,
-                                  child: Container(
-                                    width: 100,
-                                    height: 100,
-                                    decoration: BoxDecoration(
+                        }
+                        List<UsersRecord> swipeableStackUsersRecordList =
+                            snapshot.data!
+                                .where((u) => u.uid != currentUserUid)
+                                .toList();
+                        // Return an empty Container when the document does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final swipeableStackUsersRecord =
+                            swipeableStackUsersRecordList.isNotEmpty
+                                ? swipeableStackUsersRecordList.first
+                                : null;
+                        return FlutterFlowSwipeableStack(
+                          topCardHeightFraction: 0.72,
+                          middleCardHeightFraction: 0.68,
+                          botttomCardHeightFraction: 0.75,
+                          topCardWidthFraction: 0.95,
+                          middleCardWidthFraction: 0.85,
+                          botttomCardWidthFraction: 0.8,
+                          onSwipeFn: (index) {},
+                          onLeftSwipe: (index) async {
+                            final usersUpdateData = {
+                              'Rejects': FieldValue.arrayUnion(
+                                  [swipeableStackUsersRecord!.uid]),
+                            };
+                            await currentUserReference!.update(usersUpdateData);
+
+                            context.pushNamed('DashboardScreen');
+                          },
+                          onRightSwipe: (index) async {
+                            final usersUpdateData = {
+                              'Matches': FieldValue.arrayUnion(
+                                  [swipeableStackUsersRecord!.uid]),
+                            };
+                            await currentUserReference!.update(usersUpdateData);
+                            if (swipeableStackUsersRecord!.matches!
+                                .toList()
+                                .contains(swipeableStackUsersRecord!.uid)) {
+                              final chatsCreateData = {
+                                ...createChatsRecordData(
+                                  userA: swipeableStackUsersRecord!.reference,
+                                  userB: currentUserReference,
+                                  lastMessage: '\"\"',
+                                  lastMessageTime: getCurrentTimestamp,
+                                ),
+                                'users': functions.createChatUserList(
+                                    swipeableStackUsersRecord!.reference,
+                                    currentUserReference!),
+                              };
+                              await ChatsRecord.collection
+                                  .doc()
+                                  .set(chatsCreateData);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'You have a match',
+                                    style: TextStyle(
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .primaryText,
                                     ),
-                                    child: EmptyListWidget(),
                                   ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0x00000000),
                                 ),
-                            () => Card(
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  color: Color(0xFFF5F5F5),
-                                  elevation: 2,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text(
-                                        swipeableStackUsersRecord!.displayName!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .title2
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
+                              );
+                              await Future.delayed(
+                                  const Duration(milliseconds: 3000));
+                            }
+
+                            context.goNamed(
+                              'DashboardScreen',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          },
+                          onUpSwipe: (index) {},
+                          onDownSwipe: (index) {},
+                          itemBuilder: (context, index) {
+                            return [
+                              () => Visibility(
+                                    visible:
+                                        !(swipeableStackUsersRecord != null),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 1,
+                                      child: Container(
+                                        width: 100,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: EmptyListWidget(),
                                       ),
-                                      Text(
-                                        swipeableStackUsersRecord!.projectIdea!,
-                                        style:
-                                            FlutterFlowTheme.of(context).title3,
-                                      ),
-                                      Text(
-                                        swipeableStackUsersRecord!
-                                            .enrolledClasses!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
-                                      ),
-                                      Text(
-                                        swipeableStackUsersRecord!.description!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                      Text(
-                                        swipeableStackUsersRecord!
-                                            .previousProjects!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                          ][index]();
-                        },
-                        itemCount: 2,
-                        controller: swipeableStackController,
-                        enableSwipeUp: false,
-                        enableSwipeDown: false,
-                      );
-                    },
+                              () => Visibility(
+                                    visible: swipeableStackUsersRecord != null,
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: Color(0xFFF5F5F5),
+                                      elevation: 2,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Text(
+                                            swipeableStackUsersRecord!
+                                                .displayName!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title2
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .black600,
+                                                ),
+                                          ),
+                                          Text(
+                                            swipeableStackUsersRecord!
+                                                .projectIdea!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .black600,
+                                                ),
+                                          ),
+                                          Text(
+                                            swipeableStackUsersRecord!
+                                                .enrolledClasses!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle2
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .black600,
+                                                ),
+                                          ),
+                                          Text(
+                                            swipeableStackUsersRecord!
+                                                .description!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .black600,
+                                                ),
+                                          ),
+                                          Text(
+                                            swipeableStackUsersRecord!
+                                                .previousProjects!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .black600,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                            ][index]();
+                          },
+                          itemCount: 2,
+                          controller: swipeableStackController,
+                          enableSwipeUp: false,
+                          enableSwipeDown: false,
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),

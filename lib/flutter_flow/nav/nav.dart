@@ -89,12 +89,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => RegistrationWidget(),
             ),
             FFRoute(
-              name: 'DashboardScreen',
-              path: 'dashboardScreen',
-              requireAuth: true,
-              builder: (context, params) => DashboardScreenWidget(),
-            ),
-            FFRoute(
               name: 'ChatPage',
               path: 'chatPage',
               asyncParams: {
@@ -105,6 +99,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 chatRef: params.getParam(
                     'chatRef', ParamType.DocumentReference, false, 'chats'),
               ),
+            ),
+            FFRoute(
+              name: 'DashboardScreen',
+              path: 'dashboardScreen',
+              requireAuth: true,
+              builder: (context, params) => DashboardScreenWidget(),
             ),
             FFRoute(
               name: 'allChatPage',
