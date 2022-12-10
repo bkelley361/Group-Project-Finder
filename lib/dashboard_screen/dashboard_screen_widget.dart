@@ -224,26 +224,31 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                   child: AuthUserStreamWidget(
                     child: FutureBuilder<List<UsersRecord>>(
                       future: queryUsersRecordOnce(
-                        queryBuilder: (usersRecord) => usersRecord.whereNotIn(
-                            'uid',
-                            functions.combineLists(
-                                        (currentUserDocument?.matches
-                                                    ?.toList() ??
-                                                [])
-                                            .toList(),
-                                        (currentUserDocument?.rejects
-                                                    ?.toList() ??
-                                                [])
-                                            .toList()) !=
-                                    ''
-                                ? functions.combineLists(
-                                    (currentUserDocument?.matches?.toList() ??
-                                            [])
-                                        .toList(),
-                                    (currentUserDocument?.rejects?.toList() ??
-                                            [])
-                                        .toList())
-                                : null),
+                        queryBuilder: (usersRecord) => usersRecord
+                            .whereNotIn(
+                                'uid',
+                                functions.combineLists(
+                                            (currentUserDocument?.matches
+                                                        ?.toList() ??
+                                                    [])
+                                                .toList(),
+                                            (currentUserDocument?.rejects
+                                                        ?.toList() ??
+                                                    [])
+                                                .toList()) !=
+                                        ''
+                                    ? functions
+                                        .combineLists(
+                                            (currentUserDocument?.matches
+                                                        ?.toList() ??
+                                                    [])
+                                                .toList(),
+                                            (currentUserDocument?.rejects
+                                                        ?.toList() ??
+                                                    [])
+                                                .toList())
+                                    : null)
+                            .limit(10),
                         singleRecord: true,
                       ),
                       builder: (context, snapshot) {
@@ -271,7 +276,19 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                         final swipeableStackUsersRecord =
                             swipeableStackUsersRecordList.isNotEmpty
                                 ? swipeableStackUsersRecordList.first
-                                : null;
+                                : UsersRecord((u) => u
+                                  ..email = 'No People Left'
+                                  ..displayName = 'End of the Line'
+                                  ..uid = '00000000'
+                                  ..createdTime = DateTime.now()
+                                  ..description =
+                                      'You have swiped through everyone.'
+                                  ..previousProjects =
+                                      'You have swiped throug everyone'
+                                  ..projectIdea = 'No People Left'
+                                  ..enrolledClasses = 'No People Left'
+                                  ..phoneNumber = '+0-000-0000');
+                        ;
                         return FlutterFlowSwipeableStack(
                           topCardHeightFraction: 0.72,
                           middleCardHeightFraction: 0.68,
@@ -328,7 +345,6 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                               await Future.delayed(
                                   const Duration(milliseconds: 3000));
                             }
-
                             context.goNamed(
                               'DashboardScreen',
                               extra: <String, dynamic>{
