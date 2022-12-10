@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_swipeable_stack.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -131,6 +132,32 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                       ),
                     ),
                   ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 200, 0, 0),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  GoRouter.of(context).prepareAuthEvent();
+                  await signOut();
+
+                  context.goNamedAuth('LoginScreen', mounted);
+                },
+                text: 'Log out',
+                options: FFButtonOptions(
+                  width: 130,
+                  height: 40,
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                      ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
@@ -478,16 +505,6 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                         Icons.cancel,
                         color: Color(0xFFFF0004),
                         size: 60,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () async {
-                        swipeableStackController.triggerSwipeUp();
-                      },
-                      child: Icon(
-                        Icons.star_rounded,
-                        color: Color(0xBDFFD04C),
-                        size: 70,
                       ),
                     ),
                     InkWell(

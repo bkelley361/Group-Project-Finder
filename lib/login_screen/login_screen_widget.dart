@@ -143,7 +143,10 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       filled: true,
                       fillColor: Color(0xFFE7E8E9),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).customColor4,
+                        ),
                   ),
                 ),
               ),
@@ -219,7 +222,10 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                         ),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).customColor4,
+                        ),
                   ),
                 ),
               ),
