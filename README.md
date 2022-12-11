@@ -17,7 +17,7 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 ### UML Diagrams
 
-1. ![Class Diagram](images/UML-Class-Diagram.png)
+1. ![UML Class Diagram](https://user-images.githubusercontent.com/112658136/206881847-24f2b382-df53-41e0-94e3-d54aa2876d0b.png)
 2. ![Use Case Diagram](images/Use-Case-Diagram.png)
 3. ![Sequence Diagram Part 1](images/Sequence-Diagram-pt.1.png)
 4. ![Sequence Diagram Part 2](images/Sequence-Diagram-pt.2.png)
