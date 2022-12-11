@@ -17,9 +17,9 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 ### UML Diagrams
 
-1. ![UML Class Diagram](assets/images/class-diagram.png)
-2. ![Use Case Diagram](assets/images/user-diagram.png)
-3. ![Sequence Diagram pt 1](assets/images/sequence-diagram.png)
+1. ![UML Class Diagram (1)](https://user-images.githubusercontent.com/112658136/206884412-24b10a29-f96f-43f4-836c-b88c5a240591.png)
+2. ![Use Case Diagram (1)](https://user-images.githubusercontent.com/112658136/206884392-5350f6a7-27ed-48f4-b9bb-4bee110845c0.png)
+3. ![Sequence Diagram pt 1 (1)](https://user-images.githubusercontent.com/112658136/206884366-84edca19-49f8-4530-9e96-994868006408.png)
 
 
 ### UI Designs
