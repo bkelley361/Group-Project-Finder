@@ -19,7 +19,10 @@ This command creates the generated files that parse each Record from Firestore i
 
 ### Getting started continued:
 
-This project is a starting point for a Flutter application.
+1. ![UML Class Diagram](https://user-images.githubusercontent.com/112658136/206881847-24f2b382-df53-41e0-94e3-d54aa2876d0b.png)
+2. ![Use Case Diagram](images/Use-Case-Diagram.png)
+3. ![Sequence Diagram Part 1](images/Sequence-Diagram-pt.1.png)
+4. ![Sequence Diagram Part 2](images/Sequence-Diagram-pt.2.png)
 
 A few resources to get you started if this is your first Flutter project:
 
