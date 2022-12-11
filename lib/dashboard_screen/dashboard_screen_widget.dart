@@ -273,7 +273,18 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                           }
                           final cardUsersRecord = cardUsersRecordList.isNotEmpty
                               ? cardUsersRecordList.first
-                              : null;
+                              : UsersRecord((u) => u
+                                ..email = 'No People Left'
+                                ..displayName = 'End of the Line'
+                                ..uid = '00000000'
+                                ..createdTime = DateTime.now()
+                                ..description =
+                                    'You have swiped through everyone.'
+                                ..previousProjects =
+                                    'You have swiped throug everyone'
+                                ..projectIdea = 'No People Left'
+                                ..enrolledClasses = 'No People Left'
+                                ..phoneNumber = '+0-000-0000');
                           return Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: Color(0xFFF5F5F5),
@@ -406,7 +417,6 @@ class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
                                             await Future.delayed(const Duration(
                                                 milliseconds: 3000));
                                           }
-
                                           context.goNamed('DashboardScreen');
                                         },
                                         child: Icon(
