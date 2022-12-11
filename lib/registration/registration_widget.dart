@@ -28,11 +28,6 @@ class _RegistrationWidgetState extends State<RegistrationWidget> {
   TextEditingController? descriptionController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  bool verifyFormSubmittedToBackend() {
-    // Replace this with the code that checks whether the form was submitted to the backend.
-    return true;
-  }
-
   @override
   void initState() {
     super.initState();

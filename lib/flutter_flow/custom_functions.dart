@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -8,9 +9,9 @@ import 'lat_lng.dart';
 import 'place.dart';
 import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../auth/auth_util.dart';
+import '../../auth/auth_util.dart';
 
-List<String>? combineLists(
+List<String> combineLists(
   List<String>? matches,
   List<String>? rejects,
 ) {
@@ -22,7 +23,9 @@ List<String>? combineLists(
   if (rejects != null) {
     rejects.forEach((rejects) => newList.add(rejects));
   }
-  return newList;
+
+  // limit the list to 10 or less entries
+  return newList.length > 10 ? newList.sublist(0, 10) : newList;
 }
 
 List<DocumentReference> createChatUserList(

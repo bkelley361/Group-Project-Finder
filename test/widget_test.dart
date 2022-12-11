@@ -150,12 +150,4 @@ void main() {
     final dashboardScreen = DashboardScreenWidget();
     expect(dashboardScreen.createState(), isA<State<DashboardScreenWidget>>());
   });
-
-  test('Test that SwipeableCardSectionController is initialized in initState',
-      () {
-    final dashboardScreen = DashboardScreenWidget();
-    final state = dashboardScreen.createState();
-    state.initState();
-    expect(state.swipeableStackController, isNotNull);
-  });
 }
