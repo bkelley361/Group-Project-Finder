@@ -23,8 +23,18 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 
 ### UI Designs
-
-![UI Screens](images/UI-Designs.png)
+<table>
+  <tr>
+    <td><img width="147" alt="loginScreen (1)" src="https://user-images.githubusercontent.com/112658136/206884185-fd9b418d-b584-4043-b70d-a91feac6d441.png"></td>
+    <td><img width="146" alt="registration (1)" src="https://user-images.githubusercontent.com/112658136/206884239-d3392bc3-e796-417e-902e-c34c41b04666.png"></td>
+    <td><img width="145" alt="dashBoardScreen (1)" src="https://user-images.githubusercontent.com/112658136/206884242-3b99bcbe-7a22-4fb2-bf24-576fbbb7da38.png"</td>
+  </tr>
+  <tr>
+    <td><img width="145" alt="editProfile (1)" src="https://user-images.githubusercontent.com/112658136/206884254-48809159-cc17-4e5c-a5b7-ba242832c09b.png"></td>
+    <td><img width="145" alt="allChatPage (1)" src="https://user-images.githubusercontent.com/112658136/206884270-fc5f5187-cee2-49d4-932b-0dba89b94946.png"></td>
+    <td><img width="147" alt="chatPage (1)" src="https://user-images.githubusercontent.com/112658136/206884272-fa7dc9ba-ae25-49fc-94ed-1829964f026f.png"></td>
+  </tr>
+</table>
 
 ### Links for project
 
