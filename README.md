@@ -21,6 +21,7 @@ Because forming groups for projects can be awkward and hard we have decided to b
 2. ![Use Case Diagram](assets/images/user-diagram.png)
 3. ![Sequence Diagram pt 1](assets/images/sequence-diagram.png)
 
+
 ### UI Designs
 
 ![UI Screens](images/UI-Designs.png)
