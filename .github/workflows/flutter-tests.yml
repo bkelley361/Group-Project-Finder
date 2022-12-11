@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - '*'
-
 jobs:
   flutter_tests:
     runs-on: ubuntu-latest

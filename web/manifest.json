@@ -1,6 +1,6 @@
 {
-    "name": "group_project_finder",
-    "short_name": "group_project_finder",
+    "name": "Group Finder Project",
+    "short_name": "Group Finder Project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
@@ -18,18 +18,6 @@
             "src": "icons/Icon-512.png",
             "sizes": "512x512",
             "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-maskable-192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
         }
     ]
 }

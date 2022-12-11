@@ -1,33 +1,91 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:group_project_finder/LoginScreen.dart';
-import 'package:group_project_finder/register.dart';
-import './DashboardScreen.dart';
-import './LoginScreen.dart';
-void main() {
-  runApp(const MyApp());
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'auth/firebase_user_provider.dart';
+import 'auth/auth_util.dart';
+
+import 'flutter_flow/flutter_flow_theme.dart';
+import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/internationalization.dart';
+import 'flutter_flow/nav/nav.dart';
+import 'index.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await FlutterFlowTheme.initialize();
+
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Group Project',
-      theme: ThemeData(
+  State<MyApp> createState() => _MyAppState();
 
-        primarySwatch: Colors.blue,
-      ),
-      home: const LoginPage(),
-      routes: {
-        'register': (context) => const RegisterPage(),
-        'login': (context) => const LoginPage(),
-        'dashboard': (context) => const DashboardScreen(title: 'Dashboard'),
-      },
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>()!;
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale? _locale;
+  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+
+  late Stream<GroupFinderProjectFirebaseUser> userStream;
+
+  late AppStateNotifier _appStateNotifier;
+  late GoRouter _router;
+
+  final authUserSub = authenticatedUserStream.listen((_) {});
+
+  @override
+  void initState() {
+    super.initState();
+    _appStateNotifier = AppStateNotifier();
+    _router = createRouter(_appStateNotifier);
+    userStream = groupFinderProjectFirebaseUserStream()
+      ..listen((user) => _appStateNotifier.update(user));
+    jwtTokenStream.listen((_) {});
+    Future.delayed(
+      Duration(seconds: 1),
+      () => _appStateNotifier.stopShowingSplashImage(),
+    );
+  }
+
+  @override
+  void dispose() {
+    authUserSub.cancel();
+
+    super.dispose();
+  }
+
+  void setLocale(String language) {
+    setState(() => _locale = createLocale(language));
+  }
+
+  void setThemeMode(ThemeMode mode) => setState(() {
+        _themeMode = mode;
+        FlutterFlowTheme.saveThemeMode(mode);
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      title: 'Group Finder Project',
+      localizationsDelegates: [
+        FFLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: _locale,
+      supportedLocales: const [Locale('en', '')],
+      theme: ThemeData(brightness: Brightness.light),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      themeMode: _themeMode,
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
     );
   }
 }
-
-
