@@ -9,12 +9,6 @@ part 'users_record.g.dart';
 abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   static Serializer<UsersRecord> get serializer => _$usersRecordSerializer;
 
-  UsersRecord.instance({
-    required String email,
-    required String displayName,
-    required String uid,
-  });
-
   String? get email;
 
   @BuiltValueField(wireName: 'display_name')
