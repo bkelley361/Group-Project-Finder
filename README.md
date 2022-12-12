@@ -40,3 +40,22 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 1. Jira - https://groupprojectfinder.atlassian.net/jira/software/projects/GPF/boards/1
 2. Flutter Documentation - https://docs.flutter.dev/get-started/install/windows
+
+### Risk Analysis and Retrospective
+
+1. What were the risks, what were the problems, how did you deal with them during the
+project?
+
+    i. The risks that we faced was that maybe one of our team members wouldn't get their work done on time and wasn't doing what corresponded to them.
+We dealt with the problem by having constant communication among each other and if someone wasn't replying, use an alternative way of communication in case something happend.
+We also took a security risk, since all of our passwords don't meet any of the general expectations of a password, and we dealt with it using firebase which is in house security, 
+so all of the passwords are securely encripted and if we access the database we can't see them.
+
+2. What was done and what could have been done better.
+
+    i. We originally planned that we were going to have a feature called 'super like', which was generally saying that, that person really wanted to work with you, but we didn't get around to that.
+The cards could have also been done nicer, less basic. Overall, everything could be slightly more polished since it's pretty basic.
+
+### Demo Video
+
+[Group Project Finder Demo](https://drive.google.com/file/d/14JNFFuBVWzcQpqTzpcX9BYAzcNVOsNKa/view?usp=sharing)
