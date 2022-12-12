@@ -6,6 +6,7 @@ import 'package:built_value/built_value.dart';
 
 part 'chat_messages_record.g.dart';
 
+//Chat messages schema
 abstract class ChatMessagesRecord
     implements Built<ChatMessagesRecord, ChatMessagesRecordBuilder> {
   static Serializer<ChatMessagesRecord> get serializer =>

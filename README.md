@@ -13,7 +13,7 @@ Because forming groups for projects can be awkward and hard we have decided to b
 
 ### Architecture
 
-![Architecture](images/Architecture.png)
+![Architecture](assets/images/Architecture.png)
 
 ### UML Diagrams
 
@@ -21,8 +21,8 @@ Because forming groups for projects can be awkward and hard we have decided to b
 2. ![Use Case Diagram (1)](https://user-images.githubusercontent.com/112658136/206884392-5350f6a7-27ed-48f4-b9bb-4bee110845c0.png)
 3. ![Sequence Diagram pt 1 (1)](https://user-images.githubusercontent.com/112658136/206884366-84edca19-49f8-4530-9e96-994868006408.png)
 
-
 ### UI Designs
+
 <table>
   <tr>
     <td><img width="147" alt="loginScreen (1)" src="https://user-images.githubusercontent.com/112658136/206884185-fd9b418d-b584-4043-b70d-a91feac6d441.png"></td>
